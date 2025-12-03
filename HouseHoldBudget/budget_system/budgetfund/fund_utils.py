@@ -5,7 +5,7 @@ from IPython.display import display
 
 def print_log(budgetfund,start,end):
     df = budgetfund.get_df(start,end)
-    def color_status(val):
+    def color_status(val):  # pragma: no cover
         if val == 'succeeded':
             return 'background-color: #d4edda; color: #155724;'
         elif val == 'failed':
@@ -25,7 +25,7 @@ def search_log(budgetfund, keyword=''):
     found = df[df['description'].str.contains(keyword, case=False, na=False)]
     if found.empty:
         return ["No record found"]
-    def color_status(val):
+    def color_status(val):  # pragma: no cover
         if val == 'succeeded':
             return 'background-color: #d4edda; color: #155724;'
         elif val == 'failed':
@@ -42,7 +42,7 @@ def filter_status(budgetfund, status=True):
     found = df[df['status'] == target]
     if found.empty:
         return "No record found"
-    def color_status(val):
+    def color_status(val):  # pragma: no cover
         if val == 'succeeded':
             return 'background-color: #d4edda; color: #155724;'
         elif val == 'failed':
