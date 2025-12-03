@@ -1,3 +1,11 @@
+import os
+import sys
+
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))          # ...\HouseHoldBudget\tests
+PROJECT_ROOT = os.path.dirname(CURRENT_DIR)                        # ...\HouseHoldBudget
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
 import unittest
 
 from test_budgetfund_module import TestBudgetFundModule
