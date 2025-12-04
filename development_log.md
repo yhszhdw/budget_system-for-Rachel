@@ -59,3 +59,5 @@ Adjust budget_system.budget_system里面 add_member function，防止记录存�
 
 12/03 上午10:32 过真快啊 再有一周就放假了
 
+12/04 上午9:35 check
+
