@@ -59,10 +59,20 @@ class Asset:
 
     @current_value.setter
     def current_value(self, new_value: float):
-        if new_value < 0:
-            raise ValueError("Asset value cannot be negative.")
-        self._current_value = new_value
-        self.last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        try:
+        # Convert to float (handles strings like "100.5")
+            new_value = float(new_value)
+
+            if new_value < 0:
+                raise ValueError("Asset value cannot be negative.")
+
+            self._current_value = new_value
+            self.last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        except (TypeError, ValueError) as e:
+        # Provide a user-friendly message and re-raise for tests & logging
+            print(f"[ERROR] Invalid value for current_value(): {e}")
+            raise
 
     # export
     def to_dict(self) -> Dict[str, Any]:

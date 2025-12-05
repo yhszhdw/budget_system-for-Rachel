@@ -40,10 +40,11 @@ class BudgetSystem:
         for person in self.members:
             print(person)
 
-    def get_member(self, ID):
-        for person in self.members:
-            if person.ID == ID:
-                return person
+    def get_member(self, ID: str):
+        """Return member object by ID string, or None if not found."""
+        for m in self.members:
+            if getattr(m, "ID", None) == ID:
+                return m
         return None
 
     def upgrade_member(self, ID):

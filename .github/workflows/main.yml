@@ -1,6 +1,6 @@
-##try-except
 name: Python Package CI
 
+##begin workflow
 on:
   push:
     branches: [ main ]
